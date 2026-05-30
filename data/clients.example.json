@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Jamie Rivera",
+    "phone": "+15555550101",
+    "consent": true,
+    "timezoneOffsetMinutes": -300,
+    "context": {
+      "knowledge": "Plan: Standard, renews 2026-06-15 at $29/mo. Last support ticket resolved 2026-05-10.",
+      "message": "Your June statement is now available in your account portal."
+    }
+  },
+  {
+    "name": "Priya Nair",
+    "phone": "+15555550102",
+    "consent": true,
+    "timezoneOffsetMinutes": 0,
+    "context": {
+      "knowledge": "Plan: Premium, renews 2026-07-01 at $59/mo.",
+      "message": "Your appointment with a specialist is confirmed for Thursday at 2pm."
+    }
+  },
+  {
+    "name": "No Consent Example",
+    "phone": "+15555550103",
+    "consent": false,
+    "context": {}
+  }
+]

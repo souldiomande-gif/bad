@@ -1,0 +1,6 @@
+node_modules/
+.env
+data/clients.json
+data/dnc.json
+data/call-log.jsonl
+*.log
