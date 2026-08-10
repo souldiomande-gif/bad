@@ -5,6 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "master": "node src/master.js",
     "dial": "node src/dialer/outbound.js",
     "test": "node --test"
   },

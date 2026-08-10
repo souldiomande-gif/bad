@@ -1,6 +1,5 @@
 'use strict';
 
-const twilio = require('twilio');
 const config = require('../config');
 const db = require('../store/db');
 const compliance = require('../compliance');
@@ -20,7 +19,8 @@ function buildClient() {
   if (!config.twilio.accountSid || !config.twilio.authToken) {
     throw new Error('Twilio credentials are not configured (see .env.example).');
   }
-  return twilio(config.twilio.accountSid, config.twilio.authToken);
+  // Lazy so dry runs work without node_modules/twilio installed.
+  return require('twilio')(config.twilio.accountSid, config.twilio.authToken);
 }
 
 async function dialOne(restClient, phone, flow, { dryRun }) {

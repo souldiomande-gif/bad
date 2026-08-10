@@ -4,3 +4,4 @@ data/clients.json
 data/dnc.json
 data/call-log.jsonl
 *.log
+data/crm.json

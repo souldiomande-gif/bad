@@ -37,6 +37,32 @@ Twilio  ──webhook──>  server.js  /voice/answer   (AI disclosure + openin
                        compliance (opt-out / human?) ──> brain (Claude or script)
 ```
 
+## One command: the master tool
+
+`npm run master` runs the whole operation — environment check, CRM sync,
+compliance gate, dialing, and reporting — in one go. It is a **dry run by
+default**: everything executes except the actual phone calls, so you can see
+exactly who would be called and why before committing. Add `--live` to dial.
+
+```bash
+npm run master                        # full pipeline, dry run (safe default)
+npm run master -- run renewal --live  # full pipeline, places real calls
+npm run master -- status              # environment + data health check
+npm run master -- report              # pipeline stages + recent activity
+```
+
+It includes a lightweight CRM (`data/crm.json`, gitignored) that tracks each
+contact through `lead → contacted → qualified → customer | lost`, mirrors
+every call as an activity, and syncs from `data/clients.json` (which stays
+the source of truth for consent; DNC membership marks a contact `lost`):
+
+```bash
+npm run master -- crm list [stage]
+npm run master -- crm add "+15555550199" Dana Lee
+npm run master -- crm stage "+15555550199" qualified
+npm run master -- crm note "+15555550199" asked to call back Tuesday
+```
+
 ## Setup
 
 ```bash
